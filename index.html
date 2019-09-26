@@ -1,4 +1,32 @@
-
+<script>
+    function checkForm(form) {
+        var familia = form.familia.value;
+        var n = familia.match(/^[A-Za-zА-Яа-я ]*[A-Za-zА-Яа-я ]+$/);
+        if (!n) {
+            alert("Фамилия введена неверна, пожалуйста исправьте ошибку");
+            return false;
+        }
+        var name = form.name.value;
+        var n = name.match(/^[A-Za-zА-Яа-я ]*[A-Za-zА-Яа-я ]+$/);
+        if (!n) {
+            alert("Имя введено неверно, пожалуйста исправьте ошибку");
+            return false;
+        }
+        var patronymic = form.patronymic.value;
+        var n = patronymic.match(/^[A-Za-zА-Яа-я ]*[A-Za-zА-Яа-я ]+$/);
+        if (!n) {
+            alert("отчество введено неверно, пожалуйста исправьте ошибку");
+            return false;
+        }
+        var email = form.email.value;
+        var m = email.match(/^[A-Za-z0-9][A-Za-z0-9\._-]*[A-Za-z0-9_]*@([A-Za-z0-9]+([A-Za-z0-9-]*[A-Za-z0-9]+)*\.)+[A-Za-z]+$/);
+        if (!m) {
+            alert("E-mail введен неверно, пожалуйста исправьте ошибку");
+            return false;
+        }
+        return true;
+    }
+</script>
 <h2>форма обратной связи</h2>
 <form method="POST" action="./form.php">
         <label for="name">Фамилия:</label><br>
