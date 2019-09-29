@@ -27,7 +27,8 @@ if (!empty($_POST['familia']) and !empty($_POST['name']) and !empty($_POST['patr
     $email = trim(strip_tags($_POST['email']));
     $mes = trim(strip_tags($_POST['mes']));
 
-    mail('kunutok@gmail.com', 'Письмо с fedback.github.io',
+   
+    $x = mail('kunutok@gmail.com', 'Письмо с fedback.github.io',
         'Вам написал: ' . $familia . $name . $patronymic . '<br />Его почта: ' . $email . '<br />
       Его сообщение: ' . $mes, "Content-type:text/html;charset=windows-1251");
       
@@ -41,6 +42,9 @@ if (!empty($_POST['familia']) and !empty($_POST['name']) and !empty($_POST['patr
     echo "Для отправки сообщения заполните все поля! $back";
     exit;
 }
+echo ($x);
+print_r($x);
 ?>
 </body>
+
 </html>
