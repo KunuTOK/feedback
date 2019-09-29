@@ -1,44 +1,24 @@
-<script>
-    function checkForm(form) {
-        var familia = form.familia.value;
-        var n = familia.match(/^[A-Za-zА-Яа-я ]*[A-Za-zА-Яа-я ]+$/);
-        if (!n) {
-            alert("Фамилия введена неверна, пожалуйста исправьте ошибку");
-            return false;
-        }
-        var name = form.name.value;
-        var n = name.match(/^[A-Za-zА-Яа-я ]*[A-Za-zА-Яа-я ]+$/);
-        if (!n) {
-            alert("Имя введено неверно, пожалуйста исправьте ошибку");
-            return false;
-        }
-        var patronymic = form.patronymic.value;
-        var n = patronymic.match(/^[A-Za-zА-Яа-я ]*[A-Za-zА-Яа-я ]+$/);
-        if (!n) {
-            alert("отчество введено неверно, пожалуйста исправьте ошибку");
-            return false;
-        }
-        var email = form.email.value;
-        var m = email.match(/^[A-Za-z0-9][A-Za-z0-9\._-]*[A-Za-z0-9_]*@([A-Za-z0-9]+([A-Za-z0-9-]*[A-Za-z0-9]+)*\.)+[A-Za-z]+$/);
-        if (!m) {
-            alert("E-mail введен неверно, пожалуйста исправьте ошибку");
-            return false;
-        }
-        return true;
-    }
-</script>
+<html>
+    <head>
+            <link rel="stylesheet" type="text/css" href="new.css">\
+            <title>Обратная связь</title>
+    </head>
+<body>
 <h2>форма обратной связи</h2>
-<form method="POST" action="./form.php">
-        <label for="name">Фамилия:</label><br>
+<form method="POST" action="./form.php" class="form">
+        <label for="name">Фамилия:</label>
         <input type='text' placeholder="Фамилия" name="familia" maxlength="30" rows="2"><br>
-        <label for="name">Имя:</label><br>
+        <label for="name">Имя:</label>
         <input type='text' placeholder="Имя" name="name" maxlength="30"><br>
-        <label for="name">Отчество:</label><br>
+        <label for="name">Отчество:</label>
         <input type='text' placeholder="Отчество" name="patronymic" maxlength="30"><br>
-        <label for="name">Электронная почта:</label><br>
-        <input type='text' placeholder="Email" name="email" maxlength="30"><br>
-        <label for="name">Текст вопроса:</label><br>
-        <textarea rows="7" name="mes"></textarea><br>
-    <hr>
+        <label for="name">Электронная почта:</label>
+        <input type='email' placeholder="Email" name="email" maxlength="30">
+        <span class="form__error">Это поле должно содержать E-Mail в формате example@site.com</span><br>
+        <label for="name">Текст вопроса:</label>
+        <textarea rows="10" cols="60" colomn="30" name="mes"></textarea>
+        <hr>
     <input type='submit' value="отправть" />
 </form>
+</body>
+</html>
