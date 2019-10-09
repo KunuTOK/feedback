@@ -1,50 +1,43 @@
 <!doctype html>
 <html>
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+   <meta http-equiv="Content-Type" content="text/html"; charset="utf-8"/>
    <title>Ваше сообщение успешно отправлено</title>
 </head>
-
 <body>
-
 <?php
 $back = "<p><a href=\"javascript: history.back()\">Вернуться назад</a></p>";
-
-$connection = mysqli_connect('127.0.0.1','admin','123','fb_db');
-      if($connection == false)
-      {
-          echo "error! <br>";
-          echo mysqli_connect_error();
-          exit;
-      }
-
+$connection = mysqli_connect('127.0.0.1', 'admin', '123', 'fb_db');
+if ($connection == false) {
+    echo "error! <br>";
+    echo mysqli_connect_error();
+    exit;
+}
 
 if (!empty($_POST['familia']) and !empty($_POST['name']) and !empty($_POST['patronymic']) and !empty($_POST['email'])
-    and !empty($_POST['mes'])) {
+    and !empty($_POST['message'])) {
     $familia = trim(strip_tags($_POST['familia']));
     $name = trim(strip_tags($_POST['name']));
     $patronymic = trim(strip_tags($_POST['patronymic']));
     $email = trim(strip_tags($_POST['email']));
-    $mes = trim(strip_tags($_POST['mes']));
+    $message = trim(strip_tags($_POST['message']));
 
-   
-    $x = mail('kunutok@gmail.com', 'Письмо с fedback.github.io',
+    mail('kunutok@gmail.com', 'Письмо с fedback.github.io',
         'Вам написал: ' . $familia . $name . $patronymic . '<br />Его почта: ' . $email . '<br />
-      Его сообщение: ' . $mes, "Content-type:text/html;charset=windows-1251");
-      
-    mysqli_query($connection,"INSERT INTO `fb` (`familiya`, `Name`, `patronymic`, `email`, `message`) VALUES ('$familia', '$name', '$patronymic', '$email', '$mes')");
+  Его сообщение: ' . $message, "Content-type:text/html, charset=utf-8");
 
-    echo "Ваше сообщение успешно отправлено!<Br> Вы получите ответ в
-      ближайшее время<Br> $back";
+    mysqli_query($connection, "INSERT INTO `fb` (`familiya`, `name`, `patronymic`, `email`, `message`) VALUES ('$familia', '$name', '$patronymic', '$email', '$message')");
 
-    exit;
+    $result = mysqli_affected_rows($connection);
+    if ($result > 0) {
+        echo " Сообщение отправлено. Спасибо <Br> $back";
+    } else {
+        echo "письмо с почтой  $email уже отправлено <Br> $back";
+    }
 } else {
     echo "Для отправки сообщения заполните все поля! $back";
     exit;
 }
-echo ($x);
-print_r($x);
 ?>
 </body>
-
 </html>
