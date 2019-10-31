@@ -1,7 +1,7 @@
 <?php 
   $db = mysqli_connect('127.0.0.1', 'admin', '123', 'fb_db');
   $back = "<p><a href=\"javascript: history.back()\">Вернуться назад</a></p>";
-  $home = "<p><a href=\"register.php\">Вернуться домой</a></p>";
+  $home = "<p><a href=\"feedback.php\">Вернуться домой</a></p>";
 
   if ($db == false) {
     echo "error! <br>";

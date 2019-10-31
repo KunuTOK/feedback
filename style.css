@@ -1,10 +1,10 @@
 body {
    background: #A9D9C3;
  }
- #register_form h1 {
+ #feedback_form h1 {
    text-align: center;
  }
- #register_form {
+ #feedback_form {
    width: 37%;
    margin: 100px auto;
    padding-bottom: 30px;
@@ -12,7 +12,7 @@ body {
    border-radius: 5px;
    background: white;
  }
- #register_form input {
+ #feedback_form input {
   width: 80%;
   height: 35px;
   margin: 5px 10%;
@@ -20,7 +20,7 @@ body {
   padding: 4px;
   font-size: .9em;
 } 
-#register_form textarea {
+#feedback_form textarea {
   width: 80%;
   height: 35px;
   margin: 5px 10%;
@@ -28,7 +28,7 @@ body {
   padding: 4px;
   font-size: .9em;
 }
-#register_form label {
+#feedback_form label {
   width: 80%;
   height: 35px;
   margin: 5px 10%;
